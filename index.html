@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Question</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin-top: 100px;
+        background-color: #fdf6f0;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .buttons {
+        margin-top: 40px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: none;
+    }
+
+    .yes-button {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .no-button {
+        background-color: #f44336;
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+<h1>هل فراس بياكلو</h1>
+
+<div class="buttons">
+    <button class="yes-button" onclick="handleYesClick()">Yes</button>
+    <button class="no-button" onclick="handleNoClick()">No</button>
+</div>
+
+<script>
+let messageIndex = 0;
+
+const messages = [
+    "متأكد؟",
+    "متأكد انك متأكد؟",
+    "لا مستحيل تكون متأكد!",
+    "فكر منيح بلا اكل خرا!",
+    "اي حط YES حاج منيكة",
+    "حط YES تلحس طيزي"
+];
+
+function handleNoClick() {
+    const noButton = document.querySelector('.no-button');
+    const yesButton = document.querySelector('.yes-button');
+
+    noButton.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
+
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+}
+
+function handleYesClick() {
+    window.location.href = "yes_page.html";
+}
+</script>
+
+</body>
+</html>
